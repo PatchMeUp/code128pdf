@@ -8,7 +8,7 @@ import sys, getopt
 def draw(canvas: Canvas, code: int):
     canvas.setPageSize(A4)
     canvas.bottomup = 1
-    canvas.drawString(100,750,"Faktura testowa " + str(code))
+    canvas.drawString(100,750,"Dokument testowy " + str(code))
     barcode = code128.Code128(code)
     barcode.drawOn(canvas, 100, 600)
     canvas.setFontSize(8)
@@ -19,7 +19,7 @@ def draw(canvas: Canvas, code: int):
 def generatePdf(intitcode: int, count: int):
     for i in range(count):
         fv = Canvas("fv" + str(intitcode + i) + ".pdf", pagesize=A4)
-        draw(fv, i)
+        draw(fv, intitcode + i)
 
 def main():
     try:
