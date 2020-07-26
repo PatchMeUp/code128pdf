@@ -16,10 +16,10 @@ def draw(canvas: Canvas, code: int):
     canvas.showPage()
     canvas.save()
 
-def generatePdf(intitcode: int, count: int):
-    for i in range(count):
-        fv = Canvas("fv" + str(intitcode + i) + ".pdf", pagesize=A4)
-        draw(fv, intitcode + i)
+def generatePdf(initcode: int, count: int):
+    for i in range(initcode, initcode + count):
+        fv = Canvas("fv" + str(i) + ".pdf", pagesize=A4)
+        draw(fv, i)
 
 def main():
     try:
